@@ -1,16 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Sidebar from "@/components/layout/Sidebar";
+import MobileHeader from "@/components/layout/MobileHeader";
+import WhatsAppFloatingButton from "@/components/layout/WhatsAppFloatingButton";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import TopPropertiesSection from "@/components/sections/TopPropertiesSection";
+import SellerSection from "@/components/sections/SellerSection";
+import EmptyDecoratedSection from "@/components/sections/EmptyDecoratedSection";
+import LotAiSection from "@/components/sections/LotAiSection";
+import CondoProjectSection from "@/components/sections/CondoProjectSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import AboutSection from "@/components/sections/AboutSection";
+import FAQSection from "@/components/sections/FAQSection";
+import SocialSection from "@/components/sections/SocialSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+export default function Index() {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <Sidebar />
+      <MobileHeader />
+
+      <main className="lg:ml-72 pt-14 lg:pt-0">
+        <HeroSection />
+        <TopPropertiesSection />
+        <SellerSection />
+        <EmptyDecoratedSection />
+        <LotAiSection />
+        <CondoProjectSection />
+        <TestimonialsSection />
+        <AboutSection />
+        <FAQSection />
+        <SocialSection />
+        <Footer />
+      </main>
+
+      <WhatsAppFloatingButton />
     </div>
   );
-};
-
-const Index = PlaceholderIndex;
-
-export default Index;
+}
