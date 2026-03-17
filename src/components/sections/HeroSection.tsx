@@ -1,25 +1,33 @@
-import { heroContent, siteInfo, socialSection } from "@/data/siteContent";
+import { heroContent, socialSection } from "@/data/siteContent";
 import { useHeroRotation } from "@/hooks/useHeroRotation";
 import { scrollToSection } from "@/lib/scrollToSection";
 
+const HERO_IMAGE_COUNT = 10;
+const HERO_BASE_PATH = "/hero/hero-";
+const HERO_INTERVAL = 3000;
+
 export default function HeroSection() {
   const { currentImage, nextImage, isFading } = useHeroRotation(
-    heroContent.imageCount,
-    heroContent.imageBasePath,
-    heroContent.intervalMs
+    HERO_IMAGE_COUNT,
+    HERO_BASE_PATH,
+    HERO_INTERVAL
   );
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center scroll-mt-header overflow-hidden">
-      {/* Full-section rotating background */}
+      {/* Fallback solid bg */}
+      <div className="absolute inset-0 -z-10 bg-background" />
+
+      {/* Rotating background layer */}
       <div className="absolute inset-0 z-0">
         <img
           src={currentImage}
           alt=""
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             opacity: isFading ? 0 : 1,
-            transition: "opacity 1.2s ease-in-out",
+            transition: "opacity 800ms ease-in-out",
           }}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
@@ -28,37 +36,47 @@ export default function HeroSection() {
         <img
           src={nextImage}
           alt=""
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             opacity: isFading ? 1 : 0,
-            transition: "opacity 1.2s ease-in-out",
+            transition: "opacity 800ms ease-in-out",
           }}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
           }}
         />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/80" />
-        {/* Vignette edges */}
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-background/75" />
+
+        {/* Extra darkening on text side */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 100%)",
+              "linear-gradient(105deg, hsl(var(--background) / 0.85) 45%, transparent 80%)",
           }}
         />
+
+        {/* Vignette */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 35%, hsl(var(--background)) 100%)",
+          }}
+        />
+
         {/* Bottom fade */}
         <div
-          className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
           style={{
             background:
               "linear-gradient(to top, hsl(var(--background)), transparent)",
           }}
         />
       </div>
-
-      {/* Fallback dark bg when no images load */}
-      <div className="absolute inset-0 -z-10 bg-background" />
 
       {/* Hero content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-24 lg:py-0">
