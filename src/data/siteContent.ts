@@ -395,13 +395,13 @@ export const socialSection = {
   title: "Redes e contato",
   subtitle: "Acompanhe minhas referências e conteúdos nas redes sociais.",
   links: [
-    { label: "Instagram", url: "https://www.instagram.com/lencina.rs/", icon: "instagram" },
-    { label: "Instagram IA", url: "https://www.instagram.com/lencina.ai/", icon: "instagram" },
-    { label: "YouTube", url: "https://www.youtube.com/@LencinaAi", icon: "youtube" },
-    { label: "TikTok", url: "https://www.tiktok.com/@lencina.rs", icon: "tiktok" },
-    { label: "TikTok IA", url: "https://www.tiktok.com/@lencinaai", icon: "tiktok" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/lencina-ai-082b9b3a1/", icon: "linkedin" },
-    { label: "Facebook", url: "https://www.facebook.com/profile.php?id=100068691367762", icon: "facebook" },
+    { label: "Instagram", url: "https://www.instagram.com/lencina.rs/", icon: "instagram", brandColor: "#E1306C" },
+    { label: "Instagram IA", url: "https://www.instagram.com/lencina.ai/", icon: "instagram", brandColor: "#E1306C" },
+    { label: "YouTube", url: "https://www.youtube.com/@LencinaAi", icon: "youtube", brandColor: "#FF0000" },
+    { label: "TikTok", url: "https://www.tiktok.com/@lencina.rs", icon: "tiktok", brandColor: "#69C9D0" },
+    { label: "TikTok IA", url: "https://www.tiktok.com/@lencinaai", icon: "tiktok", brandColor: "#69C9D0" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/lencina-ai-082b9b3a1/", icon: "linkedin", brandColor: "#0A66C2" },
+    { label: "Facebook", url: "https://www.facebook.com/profile.php?id=100068691367762", icon: "facebook", brandColor: "#1877F2" },
   ],
 };
 
