@@ -73,6 +73,10 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
   }
 
+  .font-sora {
+    font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  }
+
   .font-body {
     font-family: 'Inter', system-ui, sans-serif;
   }

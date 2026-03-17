@@ -9,17 +9,18 @@ export default function HeroSection() {
     heroContent.intervalMs
   );
 
-  const whatsappUrl = `https://wa.me/${siteInfo.whatsappNumber}?text=${encodeURIComponent(siteInfo.whatsappText)}`;
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center scroll-mt-header overflow-hidden">
-      {/* Background images with fade */}
+      {/* Full-section rotating background */}
       <div className="absolute inset-0 z-0">
         <img
           src={currentImage}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-800"
-          style={{ opacity: isFading ? 0 : 1 }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            opacity: isFading ? 0 : 1,
+            transition: "opacity 1.2s ease-in-out",
+          }}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
           }}
@@ -27,100 +28,96 @@ export default function HeroSection() {
         <img
           src={nextImage}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-800"
-          style={{ opacity: isFading ? 1 : 0 }}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            opacity: isFading ? 1 : 0,
+            transition: "opacity 1.2s ease-in-out",
+          }}
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
           }}
         />
-        <div className="absolute inset-0 bg-background/85" />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-background/80" />
+        {/* Vignette edges */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 100%)",
+          }}
+        />
+        {/* Bottom fade */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, hsl(var(--background)), transparent)",
+          }}
+        />
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-20 lg:py-0">
-        <div className="grid lg:grid-cols-[1fr_320px] gap-12 items-center">
-          {/* Left */}
-          <div>
-            {/* Name */}
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-semibold text-foreground tracking-wide leading-[1.1] mb-8">
-              Cristian<br />Lencina
-            </h1>
+      {/* Fallback dark bg when no images load */}
+      <div className="absolute inset-0 -z-10 bg-background" />
 
-            {/* Balloons */}
-            <div className="space-y-4 mb-8">
-              <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  {heroContent.balloon1}
-                </p>
-              </div>
-              <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  {heroContent.balloon2}
-                </p>
-              </div>
-            </div>
+      {/* Hero content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-24 lg:py-0">
+        {/* Name */}
+        <h1 className="mb-10 leading-[1.05]">
+          <span className="block font-sora text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-wide">
+            Cristian
+          </span>
+          <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-bronze tracking-wide">
+            Lencina
+          </span>
+        </h1>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <button
-                onClick={() => scrollToSection("imoveis")}
-                aria-label={heroContent.ctaPrimary}
-                className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
-              >
-                {heroContent.ctaPrimary}
-              </button>
-              <button
-                onClick={() => scrollToSection("vender")}
-                aria-label={heroContent.ctaSecondary}
-                className="bg-green-cta text-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
-              >
-                {heroContent.ctaSecondary}
-              </button>
-            </div>
-
-            {/* Social links */}
-            <div className="flex gap-3">
-              {socialSection.links.slice(0, 4).map((s) => (
-                <a
-                  key={s.label}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-md bg-secondary/50 flex items-center justify-center text-text-muted hover:text-primary hover:bg-secondary transition-all duration-200"
-                >
-                  <SocialIcon type={s.icon} />
-                </a>
-              ))}
-            </div>
+        {/* Balloons */}
+        <div className="space-y-4 mb-10 max-w-2xl">
+          <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              {heroContent.balloon1}
+            </p>
           </div>
-
-          {/* Right - Hero card */}
-          <div className="hidden lg:block">
-            <div className="rounded-lg overflow-hidden border border-border shadow-2xl">
-              <img
-                src={heroContent.heroCardImage}
-                alt={`${siteInfo.name} - Corretor de imóveis`}
-                className="w-full h-auto object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/placeholder.svg";
-                }}
-              />
-            </div>
+          <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              {heroContent.balloon2}
+            </p>
           </div>
         </div>
 
-        {/* Mobile hero card */}
-        <div className="lg:hidden mt-8 max-w-xs mx-auto">
-          <div className="rounded-lg overflow-hidden border border-border shadow-2xl">
-            <img
-              src={heroContent.heroCardImage}
-              alt={`${siteInfo.name} - Corretor de imóveis`}
-              className="w-full h-auto object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "/placeholder.svg";
-              }}
-            />
-          </div>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 mb-10">
+          <button
+            onClick={() => scrollToSection("imoveis")}
+            aria-label={heroContent.ctaPrimary}
+            className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
+          >
+            {heroContent.ctaPrimary}
+          </button>
+          <button
+            onClick={() => scrollToSection("vender")}
+            aria-label={heroContent.ctaSecondary}
+            className="bg-green-cta text-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
+          >
+            {heroContent.ctaSecondary}
+          </button>
+        </div>
+
+        {/* Social links */}
+        <div className="flex gap-3">
+          {socialSection.links.slice(0, 4).map((s) => (
+            <a
+              key={s.label}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="w-9 h-9 rounded-md bg-secondary/50 backdrop-blur-sm flex items-center justify-center text-text-muted hover:text-primary hover:bg-secondary transition-all duration-200"
+            >
+              <SocialIcon type={s.icon} />
+            </a>
+          ))}
         </div>
       </div>
     </section>
