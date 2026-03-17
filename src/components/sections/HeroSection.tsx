@@ -133,7 +133,6 @@ export default function HeroSection() {
               icon={s.icon}
               label={s.label}
               url={s.url}
-              brandColor={s.brandColor}
               compact
             />
           ))}
