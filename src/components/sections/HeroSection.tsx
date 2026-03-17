@@ -1,6 +1,7 @@
 import { heroContent, socialSection } from "@/data/siteContent";
 import { useHeroRotation } from "@/hooks/useHeroRotation";
 import { scrollToSection } from "@/lib/scrollToSection";
+import SocialIconCircle from "@/components/ui/SocialIconCircle";
 
 const HERO_IMAGE_COUNT = 10;
 const HERO_BASE_PATH = "/assets/hero/hero-";
