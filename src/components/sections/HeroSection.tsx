@@ -50,36 +50,35 @@ export default function HeroSection() {
         </div>
       )}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-background/75" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-[1] bg-background/75" />
 
-        {/* Extra darkening on text side */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(105deg, hsl(var(--background) / 0.85) 45%, transparent 80%)",
-          }}
-        />
+      {/* Extra darkening on text side */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(105deg, hsl(var(--background) / 0.85) 45%, transparent 80%)",
+        }}
+      />
 
-        {/* Vignette */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, transparent 35%, hsl(var(--background)) 100%)",
-          }}
-        />
+      {/* Vignette */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 35%, hsl(var(--background)) 100%)",
+        }}
+      />
 
-        {/* Bottom fade */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to top, hsl(var(--background)), transparent)",
-          }}
-        />
-      </div>
+      {/* Bottom fade */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-44 z-[1] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, hsl(var(--background)), transparent)",
+        }}
+      />
 
       {/* Hero content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-24 lg:py-0">
