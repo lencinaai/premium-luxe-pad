@@ -7,7 +7,7 @@ const HERO_BASE_PATH = "/hero/hero-";
 const HERO_INTERVAL = 3000;
 
 export default function HeroSection() {
-  const { currentImage, nextImage, isFading } = useHeroRotation(
+  const { currentImage, nextImage, isFading, ready } = useHeroRotation(
     HERO_IMAGE_COUNT,
     HERO_BASE_PATH,
     HERO_INTERVAL
@@ -19,64 +19,66 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-background" />
 
       {/* Rotating background layer */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={currentImage}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            opacity: isFading ? 0 : 1,
-            transition: "opacity 800ms ease-in-out",
-          }}
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
-        />
-        <img
-          src={nextImage}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            opacity: isFading ? 1 : 0,
-            transition: "opacity 800ms ease-in-out",
-          }}
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
-        />
+      {ready && (
+        <div className="absolute inset-0 z-0">
+          <img
+            src={currentImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              opacity: isFading ? 0 : 1,
+              transition: "opacity 800ms ease-in-out",
+            }}
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <img
+            src={nextImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              opacity: isFading ? 1 : 0,
+              transition: "opacity 800ms ease-in-out",
+            }}
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+        </div>
+      )}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-background/75" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-[1] bg-background/75" />
 
-        {/* Extra darkening on text side */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(105deg, hsl(var(--background) / 0.85) 45%, transparent 80%)",
-          }}
-        />
+      {/* Extra darkening on text side */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(105deg, hsl(var(--background) / 0.85) 45%, transparent 80%)",
+        }}
+      />
 
-        {/* Vignette */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, transparent 35%, hsl(var(--background)) 100%)",
-          }}
-        />
+      {/* Vignette */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 35%, hsl(var(--background)) 100%)",
+        }}
+      />
 
-        {/* Bottom fade */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to top, hsl(var(--background)), transparent)",
-          }}
-        />
-      </div>
+      {/* Bottom fade */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-44 z-[1] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, hsl(var(--background)), transparent)",
+        }}
+      />
 
       {/* Hero content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-24 lg:py-0">

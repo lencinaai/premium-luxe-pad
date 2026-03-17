@@ -8,6 +8,7 @@ export function useHeroRotation(imageCount: number, basePath: string, intervalMs
   const [currentImage, setCurrentImage] = useState("");
   const [nextImage, setNextImage] = useState("");
   const [isFading, setIsFading] = useState(false);
+  const [ready, setReady] = useState(false);
   const prefersReducedMotion = useRef(false);
 
   const sequence = sequences[sequenceIndex];
@@ -24,6 +25,7 @@ export function useHeroRotation(imageCount: number, basePath: string, intervalMs
 
   const getImageUrl = useCallback(
     (idx: number) => {
+      if (!sequence || sequence.length === 0) return "";
       const num = sequence[idx % sequence.length];
       const padded = String(num).padStart(2, "0");
       return `${basePath}${padded}.png`;
@@ -31,13 +33,23 @@ export function useHeroRotation(imageCount: number, basePath: string, intervalMs
     [sequence, basePath]
   );
 
+  // Probe first image to see if assets actually exist
   useEffect(() => {
-    setCurrentImage(getImageUrl(0));
-    setNextImage(getImageUrl(1));
-  }, [getImageUrl]);
+    if (imageCount <= 0) return;
+    const url = getImageUrl(0);
+    if (!url) return;
+    const img = new Image();
+    img.onload = () => {
+      setCurrentImage(url);
+      setNextImage(getImageUrl(1));
+      setReady(true);
+    };
+    img.onerror = () => setReady(false);
+    img.src = url;
+  }, [getImageUrl, imageCount]);
 
   useEffect(() => {
-    if (prefersReducedMotion.current) return;
+    if (!ready || prefersReducedMotion.current) return;
 
     const timer = setInterval(() => {
       setIsFading(true);
@@ -53,7 +65,7 @@ export function useHeroRotation(imageCount: number, basePath: string, intervalMs
     }, intervalMs);
 
     return () => clearInterval(timer);
-  }, [currentIndex, getImageUrl, intervalMs]);
+  }, [ready, currentIndex, getImageUrl, intervalMs]);
 
-  return { currentImage, nextImage, isFading };
+  return { currentImage, nextImage, isFading, ready };
 }
