@@ -7,7 +7,7 @@ const HERO_BASE_PATH = "/hero/hero-";
 const HERO_INTERVAL = 3000;
 
 export default function HeroSection() {
-  const { currentImage, nextImage, isFading } = useHeroRotation(
+  const { currentImage, nextImage, isFading, ready } = useHeroRotation(
     HERO_IMAGE_COUNT,
     HERO_BASE_PATH,
     HERO_INTERVAL
