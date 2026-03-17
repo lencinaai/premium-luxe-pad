@@ -1,119 +1,111 @@
-import { useState, useEffect, useCallback, useRef } from "react";
-import { getShuffledSequences } from "@/lib/shuffleSequences";
+import { useState, useEffect, useRef } from "react";
 
-export function useHeroRotation(imageCount: number, basePath: string, intervalMs: number) {
-  const [sequence, setSequence] = useState<string[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+/**
+ * Rotates through hero background images with crossfade.
+ * Probes each candidate URL; if none load, `ready` stays false.
+ */
+export function useHeroRotation(
+  imageCount: number,
+  basePath: string,
+  intervalMs: number
+) {
   const [currentImage, setCurrentImage] = useState("");
   const [nextImage, setNextImage] = useState("");
   const [isFading, setIsFading] = useState(false);
   const [ready, setReady] = useState(false);
-  const prefersReducedMotion = useRef(false);
 
-  const getCandidateUrls = useCallback(() => {
-    return Array.from({ length: imageCount }, (_, index) => {
-      const padded = String(index + 1).padStart(2, "0");
-      return `${basePath}${padded}.png`;
-    });
-  }, [imageCount, basePath]);
+  // Persist mutable data without causing re-renders
+  const dataRef = useRef<{
+    sequence: string[];
+    index: number;
+    prefersReducedMotion: boolean;
+  }>({ sequence: [], index: 0, prefersReducedMotion: false });
 
+  // Track reduced-motion preference
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    prefersReducedMotion.current = mq.matches;
+    dataRef.current.prefersReducedMotion = mq.matches;
     const handler = (e: MediaQueryListEvent) => {
-      prefersReducedMotion.current = e.matches;
+      dataRef.current.prefersReducedMotion = e.matches;
     };
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  // Probe images on mount and build sequence
   useEffect(() => {
     let cancelled = false;
 
-    const probeImage = (url: string) =>
-      new Promise<string | null>((resolve) => {
+    const probe = (url: string): Promise<string | null> =>
+      new Promise((resolve) => {
         const img = new Image();
         img.onload = () => resolve(url);
         img.onerror = () => resolve(null);
         img.src = url;
       });
 
-    const loadAvailableImages = async () => {
-      const candidates = getCandidateUrls();
+    (async () => {
+      if (imageCount <= 0) return;
 
-      if (candidates.length === 0) {
-        setSequence([]);
-        setCurrentImage("");
-        setNextImage("");
-        setReady(false);
-        return;
-      }
+      const candidates = Array.from({ length: imageCount }, (_, i) => {
+        const padded = String(i + 1).padStart(2, "0");
+        return `${basePath}${padded}.png`;
+      });
 
-      const results = await Promise.all(candidates.map(probeImage));
+      const results = await Promise.all(candidates.map(probe));
       if (cancelled) return;
 
-      const availableImages = results.filter((url): url is string => Boolean(url));
+      const available = results.filter((u): u is string => u !== null);
+      if (available.length === 0) return;
 
-      if (availableImages.length === 0) {
-        setSequence([]);
-        setCurrentImage("");
-        setNextImage("");
-        setReady(false);
-        return;
+      // Fisher-Yates shuffle
+      const shuffled = [...available];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
 
-      const shuffledSequences = getShuffledSequences(availableImages.length);
-      const selectedSequence =
-        shuffledSequences[Math.floor(Math.random() * shuffledSequences.length)]
-          ?.map((imageNumber) => availableImages[imageNumber - 1])
-          .filter(Boolean) ?? [];
+      dataRef.current.sequence = shuffled;
+      dataRef.current.index = 0;
 
-      if (selectedSequence.length === 0) {
-        setSequence([]);
-        setCurrentImage("");
-        setNextImage("");
-        setReady(false);
-        return;
-      }
-
-      setSequence(selectedSequence);
-      setCurrentIndex(0);
-      setCurrentImage(selectedSequence[0]);
-      setNextImage(selectedSequence[1] ?? selectedSequence[0]);
+      setCurrentImage(shuffled[0]);
+      setNextImage(shuffled[1] ?? shuffled[0]);
       setReady(true);
-    };
-
-    loadAvailableImages();
+    })();
 
     return () => {
       cancelled = true;
     };
-  }, [getCandidateUrls]);
+  }, [imageCount, basePath]);
 
+  // Rotation timer
   useEffect(() => {
-    if (!ready || prefersReducedMotion.current || sequence.length <= 1) return;
+    const { sequence, prefersReducedMotion } = dataRef.current;
+    if (!ready || prefersReducedMotion || sequence.length <= 1) return;
 
-    let fadeTimer: number | undefined;
+    let fadeTimer: ReturnType<typeof setTimeout> | undefined;
 
-    const timer = window.setInterval(() => {
-      const next = (currentIndex + 1) % sequence.length;
-      setNextImage(sequence[next]);
+    const timer = setInterval(() => {
+      const seq = dataRef.current.sequence;
+      const next = (dataRef.current.index + 1) % seq.length;
+
+      setNextImage(seq[next]);
       setIsFading(true);
 
-      fadeTimer = window.setTimeout(() => {
-        const following = (next + 1) % sequence.length;
-        setCurrentIndex(next);
-        setCurrentImage(sequence[next]);
-        setNextImage(sequence[following]);
+      fadeTimer = setTimeout(() => {
+        dataRef.current.index = next;
+        const following = (next + 1) % seq.length;
+        setCurrentImage(seq[next]);
+        setNextImage(seq[following]);
         setIsFading(false);
       }, 800);
     }, intervalMs);
 
     return () => {
-      window.clearInterval(timer);
-      if (fadeTimer) window.clearTimeout(fadeTimer);
+      clearInterval(timer);
+      if (fadeTimer) clearTimeout(fadeTimer);
     };
-  }, [ready, sequence, currentIndex, intervalMs]);
+  }, [ready, intervalMs]);
 
   return { currentImage, nextImage, isFading, ready };
 }
