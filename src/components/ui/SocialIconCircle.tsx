@@ -15,12 +15,11 @@ interface Props {
   icon: string;
   label: string;
   url: string;
-  brandColor: string;
   /** Compact size for hero usage */
   compact?: boolean;
 }
 
-export default function SocialIconCircle({ icon, label, url, brandColor, compact }: Props) {
+export default function SocialIconCircle({ icon, label, url, compact }: Props) {
   const size = compact ? "w-10 h-10" : "w-12 h-12";
   const iconSize = compact ? "w-4 h-4" : "w-5 h-5";
 
@@ -31,20 +30,23 @@ export default function SocialIconCircle({ icon, label, url, brandColor, compact
       rel="noopener noreferrer"
       aria-label={label}
       title={label}
-      className={`${size} rounded-full flex items-center justify-center border border-border bg-secondary/60 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg group`}
+      className={`${size} rounded-full flex items-center justify-center border border-border bg-secondary/80 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-muted-foreground/30 group`}
       style={{
-        boxShadow: `inset 0 1px 2px 0 hsl(0 0% 100% / 0.04)`,
+        boxShadow: "inset 0 1px 2px 0 hsl(0 0% 100% / 0.03)",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px ${brandColor}22, inset 0 1px 2px 0 hsl(0 0% 100% / 0.06)`;
-        (e.currentTarget as HTMLElement).style.borderColor = `${brandColor}44`;
+        (e.currentTarget as HTMLElement).style.boxShadow =
+          "0 2px 12px hsl(0 0% 100% / 0.06), inset 0 1px 2px 0 hsl(0 0% 100% / 0.04)";
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow = `inset 0 1px 2px 0 hsl(0 0% 100% / 0.04)`;
-        (e.currentTarget as HTMLElement).style.borderColor = '';
+        (e.currentTarget as HTMLElement).style.boxShadow =
+          "inset 0 1px 2px 0 hsl(0 0% 100% / 0.03)";
       }}
     >
-      <svg viewBox="0 0 24 24" className={`${iconSize} fill-current`} style={{ color: brandColor }}>
+      <svg
+        viewBox="0 0 24 24"
+        className={`${iconSize} fill-current text-muted-foreground group-hover:text-foreground transition-colors duration-200`}
+      >
         <path d={iconPaths[icon] || iconPaths.instagram} />
       </svg>
     </a>
