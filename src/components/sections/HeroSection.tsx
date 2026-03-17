@@ -19,33 +19,36 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-background" />
 
       {/* Rotating background layer */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={currentImage}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            opacity: isFading ? 0 : 1,
-            transition: "opacity 800ms ease-in-out",
-          }}
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
-        />
-        <img
-          src={nextImage}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            opacity: isFading ? 1 : 0,
-            transition: "opacity 800ms ease-in-out",
-          }}
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
-        />
+      {ready && (
+        <div className="absolute inset-0 z-0">
+          <img
+            src={currentImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              opacity: isFading ? 0 : 1,
+              transition: "opacity 800ms ease-in-out",
+            }}
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <img
+            src={nextImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{
+              opacity: isFading ? 1 : 0,
+              transition: "opacity 800ms ease-in-out",
+            }}
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+        </div>
+      )}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-background/75" />
