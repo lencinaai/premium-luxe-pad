@@ -3,7 +3,7 @@ import { useHeroRotation } from "@/hooks/useHeroRotation";
 import { scrollToSection } from "@/lib/scrollToSection";
 
 const HERO_IMAGE_COUNT = 10;
-const HERO_BASE_PATH = "/hero/hero-";
+const HERO_BASE_PATH = "/assets/hero/hero-";
 const HERO_INTERVAL = 3000;
 
 export default function HeroSection() {
