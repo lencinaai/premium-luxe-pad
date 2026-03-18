@@ -20,6 +20,12 @@ export default function SellerSection() {
             </div>
           ))}
         </div>
+
+        <div className="mt-12 rounded-lg border border-[hsl(30,40%,30%)] bg-secondary/60 px-6 py-6 md:px-8 md:py-7">
+          <p className="text-[hsl(30,40%,60%)] text-sm md:text-base leading-relaxed italic">
+            Se você tem um terreno, um lote em condomínio, um apartamento ou uma casa à venda, abaixo estão exemplos do que eu consigo criar com inteligência artificial para destacar o seu anúncio no mercado.
+          </p>
+        </div>
       </div>
     </section>
   );
