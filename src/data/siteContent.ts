@@ -24,9 +24,9 @@ export const heroContent = {
   // Imagem do card lateral: public/assets/profile/hero-card.jpg
   heroCardImage: "/assets/profile/hero-card.jpg",
   balloon1:
-    "Para você que busca investir: Eu trabalho com as melhores condições de pagamento do mercado, sempre expostas e confirmadas com os proprietários. Sempre com transparência e honestidade, direto ao ponto, preto no branco.",
+    "Para você que busca investir: Eu trabalho com as melhores condições de pagamento do mercado, sempre expostas e confirmadas com os proprietários. Com transparência e honestidade, direto ao ponto, preto no branco.",
   balloon2:
-    "Para quem vende: fotos e vídeos de alto padrão e apresentação profissional, com inteligência artificial para destacar seu imóvel no mercado.",
+    "Para quem vende: Fotos e vídeos de alto padrão e apresentação profissional, com inteligência artificial para destacar o seu imóvel no mercado.",
   ctaPrimary: "Ver imóveis em destaque da semana",
   ctaSecondary: "Quero vender meu imóvel",
 };
