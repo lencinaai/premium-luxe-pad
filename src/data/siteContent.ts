@@ -62,7 +62,7 @@ export interface PropertyData {
 }
 
 export const propertiesSection = {
-  title: "Imóveis à venda, Top 06 da semana",
+  title: "Imóveis à venda - Top 06 da semana",
   subtitle:
     "Abaixo estão 06 oportunidades da semana. O que chama a atenção aqui é a condição. Os títulos abaixo priorizam a condição. Clique nas setas para ver as 03 imagens de cada imóvel.",
   ctaText:
