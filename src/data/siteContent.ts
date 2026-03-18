@@ -66,7 +66,7 @@ export const propertiesSection = {
   subtitle:
     "Abaixo estão 06 oportunidades da semana. O que chama a atenção aqui é a condição. Os títulos abaixo priorizam a condição. Clique nas setas para ver as 03 imagens de cada imóvel.",
   ctaText:
-    "Se você tiver uma condição específica (prazo, permuta ou financiamento), fale comigo no WhatsApp.",
+    "Se você tiver uma condição específica como  prazo longo, permuta ou financiamento bancario, fale comigo no WhatsApp.",
   ctaButton: "Falar no WhatsApp",
   buttonText: "Tenho interesse, agendar visita",
 };
