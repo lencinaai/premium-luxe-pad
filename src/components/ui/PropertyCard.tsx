@@ -44,7 +44,7 @@ export default function PropertyCard({ property }: Props) {
           {property.features.map((f, i) => (
             <span
               key={i}
-              className="bg-secondary text-text-secondary text-xs px-2.5 py-1 rounded-md border border-border"
+              className="bg-secondary text-text-secondary text-xs px-2.5 py-1 rounded-md border border-border w-fit"
             >
               {f}
             </span>
