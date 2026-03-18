@@ -40,7 +40,7 @@ export default function PropertyCard({ property }: Props) {
         </div>
 
         {/* Features */}
-        <div className="mb-4 flex flex-wrap gap-1.5">
+        <div className="mb-4 flex flex-col gap-1.5">
           {property.features.map((f, i) => (
             <span
               key={i}
