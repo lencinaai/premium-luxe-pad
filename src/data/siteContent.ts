@@ -8,7 +8,7 @@
 export const siteInfo = {
   name: "Cristian Lencina",
   role: "Corretor de imóveis",
-  location: "Capão da Canoa, RS",
+  location: "Litoral Norte - RS",
   creci: "CRECI 59.227",
   whatsappNumber: "5551999999999", // Substituir pelo número real
   whatsappText: "Olá, Cristian! Gostaria de mais informações.",

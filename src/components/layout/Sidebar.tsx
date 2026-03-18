@@ -23,12 +23,11 @@ export default function Sidebar() {
         <h2 className="font-display text-xl font-semibold text-foreground tracking-wide">
           {siteInfo.name}
         </h2>
-        <p className="text-sm text-text-secondary mt-1 text-center leading-snug">
-          {siteInfo.role}, {siteInfo.location}
+        <p className="text-sm text-text-secondary mt-4 text-center leading-relaxed">
+          {siteInfo.role}
+          <br />
+          {siteInfo.location}
         </p>
-        <span className="text-xs text-text-muted mt-2 tracking-widest uppercase">
-          {siteInfo.creci}
-        </span>
       </div>
 
       {/* Navigation */}
