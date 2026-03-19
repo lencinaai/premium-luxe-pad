@@ -1,5 +1,6 @@
 import { aboutSection } from "@/data/siteContent";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 
 export default function AboutSection() {
   return (
@@ -17,33 +18,16 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* About card image */}
           <div className="hidden lg:block">
-            <div className="rounded-lg overflow-hidden border border-border shadow-xl sticky top-24">
-              <img
-                src={aboutSection.image}
-                alt="Cristian Lencina"
-                className="w-full h-auto object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/placeholder.svg";
-                }}
-              />
+            <div className="sticky top-24">
+              <ImagePlaceholder className="w-full h-[380px]" />
             </div>
           </div>
         </div>
 
-        {/* Mobile about image */}
+        {/* Mobile reserved image */}
         <div className="lg:hidden mt-8 max-w-xs mx-auto">
-          <div className="rounded-lg overflow-hidden border border-border shadow-xl">
-            <img
-              src={aboutSection.image}
-              alt="Cristian Lencina"
-              className="w-full h-auto object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "/placeholder.svg";
-              }}
-            />
-          </div>
+          <ImagePlaceholder className="w-full h-72" />
         </div>
       </div>
     </section>
