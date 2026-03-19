@@ -1,7 +1,7 @@
 import { siteInfo, menuItems } from "@/data/siteContent";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { scrollToSection } from "@/lib/scrollToSection";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import profilePhoto from "@/assets/foto_de_perfil.jpeg";
 
 export default function Sidebar() {
   const anchors = menuItems.map((m) => m.anchor);
