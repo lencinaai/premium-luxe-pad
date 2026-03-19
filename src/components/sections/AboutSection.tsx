@@ -25,18 +25,9 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Mobile about image */}
+        {/* Mobile reserved image */}
         <div className="lg:hidden mt-8 max-w-xs mx-auto">
-          <div className="rounded-lg overflow-hidden border border-border shadow-xl">
-            <img
-              src={aboutSection.image}
-              alt="Cristian Lencina"
-              className="w-full h-auto object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "/placeholder.svg";
-              }}
-            />
-          </div>
+          <ImagePlaceholder className="w-full h-72" />
         </div>
       </div>
     </section>

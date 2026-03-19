@@ -138,6 +138,16 @@ export default function HeroSection() {
             />
           ))}
         </div>
+
+        {/* Reserved profile image card */}
+        <div className="hidden lg:block flex-shrink-0">
+          <ImagePlaceholder className="w-72 h-[420px]" />
+        </div>
+
+        {/* Mobile reserved image */}
+        <div className="lg:hidden mt-8 max-w-xs mx-auto w-full">
+          <ImagePlaceholder className="w-full h-80" />
+        </div>
       </div>
     </section>
   );
