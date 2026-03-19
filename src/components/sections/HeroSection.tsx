@@ -83,7 +83,7 @@ export default function HeroSection() {
       />
 
       {/* Hero content */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-24 lg:py-0">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-24 lg:py-0 flex items-center gap-10">
         {/* Name */}
         <h1 className="mb-10 leading-[1.05]">
           <span className="block font-sora text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-wide">
