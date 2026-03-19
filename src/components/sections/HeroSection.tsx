@@ -141,14 +141,18 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Reserved profile image card */}
+        {/* Profile image card */}
         <div className="hidden lg:block flex-shrink-0">
-          <ImagePlaceholder className="w-72 h-[420px]" />
+          <div className="w-72 h-[420px] rounded-lg border border-border overflow-hidden shadow-lg">
+            <img src={profilePhoto} alt="Cristian Lencina" className="w-full h-full object-cover object-top" />
+          </div>
         </div>
 
-        {/* Mobile reserved image */}
+        {/* Mobile profile image */}
         <div className="lg:hidden mt-8 max-w-xs mx-auto w-full">
-          <ImagePlaceholder className="w-full h-80" />
+          <div className="w-full h-80 rounded-lg border border-border overflow-hidden shadow-lg">
+            <img src={profilePhoto} alt="Cristian Lencina" className="w-full h-full object-cover object-top" />
+          </div>
         </div>
       </div>
     </section>

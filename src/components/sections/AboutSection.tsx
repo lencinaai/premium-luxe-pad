@@ -20,14 +20,18 @@ export default function AboutSection() {
 
           <div className="hidden lg:block">
             <div className="sticky top-24">
-              <ImagePlaceholder className="w-full h-[380px]" />
+              <div className="w-full h-[380px] rounded-lg border border-border overflow-hidden shadow-lg">
+                <img src={profilePhoto} alt="Cristian Lencina" className="w-full h-full object-cover object-top" />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Mobile reserved image */}
+        {/* Mobile profile image */}
         <div className="lg:hidden mt-8 max-w-xs mx-auto">
-          <ImagePlaceholder className="w-full h-72" />
+          <div className="w-full h-72 rounded-lg border border-border overflow-hidden shadow-lg">
+            <img src={profilePhoto} alt="Cristian Lencina" className="w-full h-full object-cover object-top" />
+          </div>
         </div>
       </div>
     </section>
