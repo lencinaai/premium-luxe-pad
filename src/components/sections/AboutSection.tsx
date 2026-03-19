@@ -1,6 +1,6 @@
 import { aboutSection } from "@/data/siteContent";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import profilePhoto from "@/assets/foto_de_perfil.jpeg";
 
 export default function AboutSection() {
   return (
