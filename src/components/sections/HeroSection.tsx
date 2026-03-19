@@ -83,60 +83,62 @@ export default function HeroSection() {
       />
 
       {/* Hero content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-24 lg:py-0 flex items-center gap-10">
-        {/* Name */}
-        <h1 className="mb-10 leading-[1.05]">
-          <span className="block font-sora text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-wide">
-            Cristian
-          </span>
-          <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-bronze tracking-wide">
-            Lencina
-          </span>
-        </h1>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-24 lg:py-0 lg:flex lg:items-center lg:gap-10">
+        <div className="flex-1 min-w-0">
+          {/* Name */}
+          <h1 className="mb-10 leading-[1.05]">
+            <span className="block font-sora text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-wide">
+              Cristian
+            </span>
+            <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-bronze tracking-wide">
+              Lencina
+            </span>
+          </h1>
 
-        {/* Balloons */}
-        <div className="space-y-4 mb-10 max-w-2xl">
-          <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
-            <p className="text-text-secondary text-sm leading-relaxed">
-              {heroContent.balloon1}
-            </p>
+          {/* Balloons */}
+          <div className="space-y-4 mb-10 max-w-2xl">
+            <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
+              <p className="text-text-secondary text-sm leading-relaxed">
+                {heroContent.balloon1}
+              </p>
+            </div>
+            <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
+              <p className="text-text-secondary text-sm leading-relaxed">
+                {heroContent.balloon2}
+              </p>
+            </div>
           </div>
-          <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
-            <p className="text-text-secondary text-sm leading-relaxed">
-              {heroContent.balloon2}
-            </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <button
+              onClick={() => scrollToSection("imoveis")}
+              aria-label={heroContent.ctaPrimary}
+              className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
+            >
+              {heroContent.ctaPrimary}
+            </button>
+            <button
+              onClick={() => scrollToSection("vender")}
+              aria-label={heroContent.ctaSecondary}
+              className="bg-green-cta text-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
+            >
+              {heroContent.ctaSecondary}
+            </button>
           </div>
-        </div>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-10">
-          <button
-            onClick={() => scrollToSection("imoveis")}
-            aria-label={heroContent.ctaPrimary}
-            className="bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
-          >
-            {heroContent.ctaPrimary}
-          </button>
-          <button
-            onClick={() => scrollToSection("vender")}
-            aria-label={heroContent.ctaSecondary}
-            className="bg-green-cta text-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
-          >
-            {heroContent.ctaSecondary}
-          </button>
-        </div>
-
-        {/* Social links */}
-        <div className="flex flex-wrap gap-3">
-          {socialSection.links.map((s) => (
-            <SocialIconCircle
-              key={s.label}
-              icon={s.icon}
-              label={s.label}
-              url={s.url}
-              compact
-            />
-          ))}
+          {/* Social links */}
+          <div className="flex flex-wrap gap-3">
+            {socialSection.links.map((s) => (
+              <SocialIconCircle
+                key={s.label}
+                icon={s.icon}
+                label={s.label}
+                url={s.url}
+                compact
+              />
+            ))}
+          </div>
         </div>
 
         {/* Reserved profile image card */}
