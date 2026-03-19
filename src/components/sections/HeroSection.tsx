@@ -2,7 +2,7 @@ import { heroContent, socialSection } from "@/data/siteContent";
 import { useHeroRotation } from "@/hooks/useHeroRotation";
 import { scrollToSection } from "@/lib/scrollToSection";
 import SocialIconCircle from "@/components/ui/SocialIconCircle";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import profilePhoto from "@/assets/foto_de_perfil.jpeg";
 
 const HERO_IMAGE_COUNT = 10;
 const HERO_BASE_PATH = "/assets/hero/hero-";
