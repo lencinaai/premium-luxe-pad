@@ -90,11 +90,11 @@ export default function HeroSection() {
           <div className="flex items-center gap-5 mb-8">
             {/* Name */}
             <div className="flex-1 min-w-0">
-              <h1 className="leading-[1.05]">
-                <span className="block font-sora text-4xl sm:text-5xl font-semibold text-foreground tracking-wide">
+              <h1 className="leading-[0.9]">
+                <span className="block font-sora text-5xl sm:text-6xl font-extrabold text-foreground uppercase tracking-[0.04em]">
                   Cristian
                 </span>
-                <span className="block font-display text-4xl sm:text-5xl font-semibold text-bronze tracking-wide">
+                <span className="block font-display text-5xl sm:text-6xl font-bold text-bronze uppercase tracking-[0.06em] italic">
                   Lencina
                 </span>
               </h1>
@@ -160,11 +160,11 @@ export default function HeroSection() {
         <div className="hidden lg:flex lg:items-center lg:gap-10">
           <div className="flex-1 min-w-0">
             {/* Name */}
-            <h1 className="mb-10 leading-[1.05]">
-              <span className="block font-sora text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-wide">
+            <h1 className="mb-10 leading-[0.88]">
+              <span className="block font-sora text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] font-extrabold text-foreground uppercase tracking-[0.03em]">
                 Cristian
               </span>
-              <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-bronze tracking-wide">
+              <span className="block font-display text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] font-bold text-bronze uppercase tracking-[0.05em] italic">
                 Lencina
               </span>
             </h1>
