@@ -89,7 +89,7 @@ export const properties: PropertyData[] = [
     ],
     totalPrice: "R$ 1.290.000",
     images: [
-      "/assets/properties/top-01/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-01/02.jpg",
       "/assets/properties/top-01/03.jpg",
     ],
@@ -114,7 +114,7 @@ export const properties: PropertyData[] = [
     ],
     totalPrice: "R$ 2.490.000",
     images: [
-      "/assets/properties/top-02/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-02/02.jpg",
       "/assets/properties/top-02/03.jpg",
     ],
@@ -141,7 +141,7 @@ export const properties: PropertyData[] = [
     ],
     totalPrice: "R$ 3.590.000",
     images: [
-      "/assets/properties/top-03/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-03/02.jpg",
       "/assets/properties/top-03/03.jpg",
     ],
@@ -156,7 +156,7 @@ export const properties: PropertyData[] = [
     features: ["A definir"],
     totalPrice: "A definir",
     images: [
-      "/assets/properties/top-04/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-04/02.jpg",
       "/assets/properties/top-04/03.jpg",
     ],
@@ -171,7 +171,7 @@ export const properties: PropertyData[] = [
     features: ["A definir"],
     totalPrice: "A definir",
     images: [
-      "/assets/properties/top-05/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-05/02.jpg",
       "/assets/properties/top-05/03.jpg",
     ],
@@ -186,7 +186,7 @@ export const properties: PropertyData[] = [
     features: ["A definir"],
     totalPrice: "A definir",
     images: [
-      "/assets/properties/top-06/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-06/02.jpg",
       "/assets/properties/top-06/03.jpg",
     ],
