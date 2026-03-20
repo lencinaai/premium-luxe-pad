@@ -85,33 +85,29 @@ export default function HeroSection() {
       {/* Hero content */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-20 lg:py-0">
         {/* ── MOBILE LAYOUT ── */}
-        <div className="lg:hidden">
-          {/* Top row: Name + Portrait side by side */}
-          <div className="flex items-center gap-5 mb-8">
-            {/* Name */}
-            <div className="flex-1 min-w-0">
-              <h1 className="leading-[0.9]">
-                <span className="block font-sora text-5xl sm:text-6xl font-extrabold text-foreground uppercase tracking-[0.04em]">
-                  Cristian
-                </span>
-                <span className="block font-display text-5xl sm:text-6xl font-bold text-bronze uppercase tracking-[0.06em] italic">
-                  Lencina
-                </span>
-              </h1>
-            </div>
-            {/* Portrait */}
-            <div className="flex-shrink-0 w-28 h-36 sm:w-32 sm:h-40 rounded-lg border border-border overflow-hidden shadow-lg bg-card">
-              <img
-                src={profilePhoto}
-                alt="Cristian Lencina"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 15%" }}
-              />
-            </div>
+        <div className="lg:hidden flex flex-col items-center text-center">
+          {/* Name */}
+          <h1 className="leading-[0.9] mb-6">
+            <span className="block font-sora text-[2.6rem] sm:text-5xl font-extrabold text-foreground uppercase tracking-[0.04em]">
+              Cristian
+            </span>
+            <span className="block font-display text-[2.6rem] sm:text-5xl font-bold text-bronze uppercase tracking-[0.06em] italic">
+              Lencina
+            </span>
+          </h1>
+
+          {/* Portrait */}
+          <div className="w-40 h-52 sm:w-48 sm:h-60 rounded-lg border border-border overflow-hidden shadow-lg bg-card mb-8">
+            <img
+              src={profilePhoto}
+              alt="Cristian Lencina"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "center 15%" }}
+            />
           </div>
 
           {/* Balloons */}
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 mb-8 w-full">
             <div className="bg-card/60 backdrop-blur-sm border border-border rounded-lg p-5 card-glow">
               <p className="text-text-secondary text-sm leading-relaxed">
                 {heroContent.balloon1}
@@ -125,7 +121,7 @@ export default function HeroSection() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-8">
+          <div className="flex flex-col gap-3 mb-8 w-full">
             <button
               onClick={() => scrollToSection("imoveis")}
               aria-label={heroContent.ctaPrimary}
@@ -143,7 +139,7 @@ export default function HeroSection() {
           </div>
 
           {/* Social links */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             {socialSection.links.map((s) => (
               <SocialIconCircle
                 key={s.label}
