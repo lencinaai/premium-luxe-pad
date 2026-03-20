@@ -114,7 +114,7 @@ export const properties: PropertyData[] = [
     ],
     totalPrice: "R$ 2.490.000",
     images: [
-      "/assets/properties/top-02/01.jpg",
+      "/ed32722c-cfae-4ef0-aebd-69c50eb14506.jpg",
       "/assets/properties/top-02/02.jpg",
       "/assets/properties/top-02/03.jpg",
     ],
