@@ -89,9 +89,9 @@ export const properties: PropertyData[] = [
     ],
     totalPrice: "R$ 1.290.000",
     images: [
-      "/8993d696-94f6-4e7e-a897-659e18a16132.jpg",
-      "/assets/properties/top-01/02.jpg",
-      "/assets/properties/top-01/03.jpg",
+      "/assets/properties/top-01/top.1.png1.jpeg",
+      "/assets/properties/top-01/top.1.png2.jpeg",
+      "/assets/properties/top-01/top.1.png3.jpeg",
     ],
     whatsappMessage: "Olá, Cristian! Tenho interesse no imóvel TOP 01 (Condomínio Terrasul).",
   },
