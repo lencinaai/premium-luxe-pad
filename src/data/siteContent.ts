@@ -88,10 +88,10 @@ export const properties: PropertyData[] = [
       "Próximo à infraestrutura do condomínio",
     ],
     totalPrice: "R$ 1.290.000",
-    images: [
-      "/assets/properties/top-01/top.1.png1.jpeg",
-      "/assets/properties/top-01/top.1.png2.jpeg",
-      "/assets/properties/top-01/top.1.png3.jpeg",
+    imagens: [
+      { src: "/assets/properties/top-01/top-01-1.jpg.jpeg", alt: "TOP 01 fachada" },
+      { src: "/assets/properties/top-01/top-01-2.jpg.jpeg", alt: "TOP 01 cozinha" },
+      { src: "/assets/properties/top-01/top-01-3.jpg.jpeg", alt: "TOP 01 sala" },
     ],
     whatsappMessage: "Olá, Cristian! Tenho interesse no imóvel TOP 01 (Condomínio Terrasul).",
   },
