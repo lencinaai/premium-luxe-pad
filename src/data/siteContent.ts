@@ -114,9 +114,9 @@ export const properties: PropertyData[] = [
     ],
     totalPrice: "R$ 2.490.000",
     images: [
-      "/8993d696-94f6-4e7e-a897-659e18a16132.jpg",
-      "/assets/properties/top-02/02.jpg",
-      "/assets/properties/top-02/03.jpg",
+      "/assets/properties/top-02/top-02-1.jpg.jpg",
+      "/assets/properties/top-02/top-02-2.jpg.jpg",
+      "/assets/properties/top-02/top-02-3.jpg.jpg",
     ],
     whatsappMessage: "Olá, Cristian! Tenho interesse no imóvel TOP 02 (Capão Ilhas Resort).",
   },
