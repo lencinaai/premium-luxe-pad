@@ -12,10 +12,11 @@ export default function FAQSection() {
 
   return (
     <section id="faq" className="py-20 px-6 scroll-mt-header">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <SectionHeading title={faqSection.title} />
 
-        <div className="space-y-3">
+        <div className="max-w-4xl">
+          <div className="space-y-3">
           {faqSection.items.map((item, i) => (
             <div
               key={i}
@@ -47,6 +48,7 @@ export default function FAQSection() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

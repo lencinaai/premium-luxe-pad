@@ -16,13 +16,14 @@ function getIconPath(icon: string) {
 export default function SocialSection() {
   return (
     <section id="contato" className="py-20 px-6 scroll-mt-header">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <SectionHeading
           title={socialSection.title}
           subtitle={socialSection.subtitle}
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="max-w-5xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {socialSection.links.map((link) => (
             <a
               key={link.label}
@@ -56,6 +57,7 @@ export default function SocialSection() {
             </a>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

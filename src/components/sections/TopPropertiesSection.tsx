@@ -7,7 +7,7 @@ export default function TopPropertiesSection() {
 
   return (
     <section id="imoveis" className="py-20 px-6 scroll-mt-header">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <SectionHeading
           title={propertiesSection.title}
           subtitle={propertiesSection.subtitle}
@@ -20,8 +20,8 @@ export default function TopPropertiesSection() {
         </div>
 
         {/* Final CTA */}
-        <div className="bg-card border border-border rounded-lg p-8 text-center">
-          <p className="text-text-secondary text-sm mb-5 max-w-xl mx-auto leading-relaxed">
+        <div className="bg-green-cta border border-green-cta/20 rounded-lg p-10 text-center shadow-lg">
+          <p className="text-white/90 text-sm md:text-base mb-6 max-w-2xl mx-auto leading-relaxed font-medium">
             {propertiesSection.ctaText}
           </p>
           <a
@@ -29,7 +29,7 @@ export default function TopPropertiesSection() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={propertiesSection.ctaButton}
-            className="inline-block bg-whatsapp text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:brightness-110 hover:shadow-lg transition-all duration-200"
+            className="inline-block bg-white text-green-cta px-10 py-3.5 rounded-md text-sm font-bold shadow-md hover:bg-white/95 hover:shadow-xl transition-all duration-200"
           >
             {propertiesSection.ctaButton}
           </a>

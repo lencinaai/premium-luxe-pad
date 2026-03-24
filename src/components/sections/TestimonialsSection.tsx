@@ -5,45 +5,23 @@ import { Star } from "lucide-react";
 export default function TestimonialsSection() {
   return (
     <section id="depoimentos" className="py-20 px-6 scroll-mt-header">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <SectionHeading title={testimonialsSection.title} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonialsSection.items.map((item, i) => (
             <div
               key={i}
-              className="bg-card border border-border rounded-lg p-6 card-glow"
+              className="aspect-square rounded-lg overflow-hidden border border-border card-glow bg-card relative"
             >
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-4">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <Star
-                    key={j}
-                    size={14}
-                    className="fill-primary text-primary"
-                  />
-                ))}
-              </div>
-
-              <p className="text-text-secondary text-sm leading-relaxed mb-5 italic">
-                "{item.text}"
-              </p>
-
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-md overflow-hidden border border-border bg-secondary">
-                  <img
-                    src={item.avatar}
-                    alt={`Depoimento de ${item.signature}`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                </div>
-                <span className="text-foreground text-sm font-medium">
-                  {item.signature}
-                </span>
-              </div>
+              <img
+                src={item.image}
+                alt={`Depoimento ${i + 1}`}
+                className="absolute inset-[-30%] w-[160%] h-[160%] max-w-none object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/placeholder.svg";
+                }}
+              />
             </div>
           ))}
         </div>

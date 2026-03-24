@@ -7,6 +7,8 @@ interface Props {
   afterImg: string;
   poster: string;
   video: string;
+  aspectRatio?: "4/3" | "9/16" | "3/2";
+  className?: string;
 }
 
 export default function ExampleComparisonBlock({
@@ -18,9 +20,16 @@ export default function ExampleComparisonBlock({
   afterImg,
   video,
   poster,
+  aspectRatio = "4/3",
+  className = "",
 }: Props) {
+  const aspectClass = 
+    aspectRatio === "9/16" ? "aspect-[9/16]" : 
+    aspectRatio === "3/2" ? "aspect-[3/2]" : 
+    "aspect-[4/3]";
+
   return (
-    <div className="bg-card border border-border rounded-lg p-5 card-glow">
+    <div className={`bg-card border border-border rounded-lg p-5 md:p-8 card-glow ${className}`}>
       {/* Chip */}
       <span className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-md border border-primary/20 mb-4">
         {chipLabel}
@@ -30,11 +39,11 @@ export default function ExampleComparisonBlock({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Before */}
         <div className="relative">
-          <div className="aspect-[4/3] rounded-md overflow-hidden bg-secondary">
+          <div className={`${aspectClass} relative rounded-md overflow-hidden bg-secondary`}>
             <img
               src={beforeImg}
               alt={beforeLabel}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "/placeholder.svg";
               }}
@@ -47,11 +56,11 @@ export default function ExampleComparisonBlock({
 
         {/* After */}
         <div className="relative">
-          <div className="aspect-[4/3] rounded-md overflow-hidden bg-secondary">
+          <div className={`${aspectClass} relative rounded-md overflow-hidden bg-secondary`}>
             <img
               src={afterImg}
               alt={afterLabel}
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "/placeholder.svg";
               }}
@@ -63,15 +72,17 @@ export default function ExampleComparisonBlock({
         </div>
 
         {/* Video */}
-        <div className="aspect-[4/3] rounded-md overflow-hidden bg-secondary">
-          <video
-            poster={poster}
-            controls
-            preload="none"
-            className="w-full h-full object-cover"
-          >
-            <source src={video} type="video/mp4" />
-          </video>
+        <div className="relative">
+          <div className={`${aspectClass} relative rounded-md overflow-hidden bg-secondary`}>
+            <video
+              poster={poster}
+              controls
+              preload="none"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          </div>
         </div>
       </div>
     </div>

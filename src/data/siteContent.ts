@@ -17,9 +17,19 @@ export const siteInfo = {
 };
 
 export const heroContent = {
-  // Imagens de fundo: public/assets/hero/hero-01.jpg até hero-17.jpg
-  imageCount: 17,
-  imageBasePath: "/assets/hero/hero-",
+  // Imagens de fundo: public/assets/hero/hero-01.png até hero-10.png
+  images: [
+    "/assets/hero/hero-01.png",
+    "/assets/hero/hero-02.png",
+    "/assets/hero/hero-03.png",
+    "/assets/hero/hero-04.png",
+    "/assets/hero/hero-05.png",
+    "/assets/hero/hero-06.png",
+    "/assets/hero/hero-07.png",
+    "/assets/hero/hero-08.png",
+    "/assets/hero/hero-09.png",
+    "/assets/hero/hero-10.png",
+  ],
   intervalMs: 3000,
   // Imagem do card lateral: public/assets/profile/hero-card.jpg
   heroCardImage: "/assets/profile/hero-card.jpg",
@@ -65,8 +75,7 @@ export const propertiesSection = {
   title: "Imóveis à venda - Top 06 da semana",
   subtitle:
     "Abaixo estão 06 oportunidades da semana. O que chama a atenção aqui é a condição. Os títulos abaixo priorizam a condição. Clique nas setas para ver as 03 imagens de cada imóvel.",
-  ctaText:
-    "Se você tiver uma condição específica como  prazo longo, permuta ou financiamento bancario, fale comigo no WhatsApp.",
+  ctaText: "Se você tiver uma condição especial ou quer mais opções como estas, me chame aqui.",
   ctaButton: "Falar no WhatsApp",
   buttonText: "Tenho interesse, agendar visita",
 };
@@ -285,6 +294,7 @@ export const emptyDecoratedSection = {
       after: "/assets/seller/empty-decorated/example-01/after-ia.jpg",
       poster: "/assets/seller/empty-decorated/example-01/poster.jpg",
       video: "/assets/videos/seller/empty-decorated/example-01.mp4",
+      aspectRatio: "9/16",
     },
     {
       label: "Exemplo 02",
@@ -292,6 +302,7 @@ export const emptyDecoratedSection = {
       after: "/assets/seller/empty-decorated/example-02/after-ia.jpg",
       poster: "/assets/seller/empty-decorated/example-02/poster.jpg",
       video: "/assets/videos/seller/empty-decorated/example-02.mp4",
+      aspectRatio: "3/2",
     },
   ],
 };
@@ -317,6 +328,8 @@ export const lotAiSection = {
   examples: [
     {
       label: "Exemplo 01",
+      aspectRatio: "4/3",
+      className: "",
       before: "/assets/seller/lot-ai/example-01/empty-lot.jpg",
       after: "/assets/seller/lot-ai/example-01/project-ia.jpg",
       poster: "/assets/seller/lot-ai/example-01/poster.jpg",
@@ -324,6 +337,8 @@ export const lotAiSection = {
     },
     {
       label: "Exemplo 02",
+      aspectRatio: "9/16",
+      className: "",
       before: "/assets/seller/lot-ai/example-02/empty-lot.jpg",
       after: "/assets/seller/lot-ai/example-02/project-ia.jpg",
       poster: "/assets/seller/lot-ai/example-02/poster.jpg",
@@ -346,11 +361,11 @@ export const lotAiSection = {
 export const condoSection = {
   title: "Projeto de condomínio fechado",
   subtitle: "Projeto completo com imagens e vídeos para mostrar execução real.",
-  featured: "/assets/condo/featured.jpg",
   gallery: [
-    "/assets/condo/gallery-01.jpg",
-    "/assets/condo/gallery-02.jpg",
     "/assets/condo/gallery-03.jpg",
+    "/assets/condo/gallery-02.jpg",
+    "/assets/condo/gallery-01.jpg",
+    "/assets/condo/gallery-04.jpg",
   ],
   videoPoster: "/assets/condo/video-poster.jpg",
   video: "/assets/videos/condo/featured.mp4",
@@ -363,26 +378,10 @@ export const condoSection = {
 export const testimonialsSection = {
   title: "Depoimentos",
   items: [
-    {
-      text: "Excelente atendimento, muito transparente com as condições. Encontramos exatamente o que procurávamos.",
-      signature: "M.",
-      avatar: "/assets/testimonials/01.jpg",
-    },
-    {
-      text: "O material de divulgação que ele fez para a minha casa foi impecável. Vendeu rápido e com segurança.",
-      signature: "C.",
-      avatar: "/assets/testimonials/02.jpg",
-    },
-    {
-      text: "Profissionalismo do início ao fim. As imagens com inteligência artificial fizeram toda a diferença no anúncio.",
-      signature: "D.",
-      avatar: "/assets/testimonials/03.jpg",
-    },
-    {
-      text: "Sempre claro nas negociações. Mostrou as melhores opções de pagamento sem enrolação.",
-      signature: "F.",
-      avatar: "/assets/testimonials/04.jpg",
-    },
+    { image: "/assets/testimonials/claudia.jpg" },
+    { image: "/assets/testimonials/fabio.jpg" },
+    { image: "/assets/testimonials/deiberson.jpg" },
+    { image: "/assets/testimonials/marina.jpg" },
   ],
 };
 

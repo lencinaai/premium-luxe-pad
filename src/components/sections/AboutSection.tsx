@@ -5,7 +5,7 @@ import profilePhoto from "@/assets/foto_de_perfil.jpeg";
 export default function AboutSection() {
   return (
     <section id="sobre" className="py-20 px-6 scroll-mt-header">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <div className="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
           <div>
             <SectionHeading title={aboutSection.title} />

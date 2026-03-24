@@ -2,14 +2,13 @@ import { useState } from "react";
 import { condoSection } from "@/data/siteContent";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Lightbox from "@/components/ui/Lightbox";
-import { Play } from "lucide-react";
 
 export default function CondoProjectSection() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  const allImages = [condoSection.featured, ...condoSection.gallery];
-  const totalItems = allImages.length + 1; // +1 for video
+  const allImages = condoSection.gallery;
+  const totalItems = allImages.length;
 
   const openLightbox = (i: number) => {
     setLightboxIndex(i);
@@ -18,34 +17,32 @@ export default function CondoProjectSection() {
 
   return (
     <section id="condominio" className="py-20 px-6 scroll-mt-header">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1400px] mx-auto space-y-20">
         <SectionHeading
           title={condoSection.title}
           subtitle={condoSection.subtitle}
         />
 
-        {/* Featured */}
-        <div
-          className="aspect-video rounded-lg overflow-hidden border border-border mb-4 cursor-pointer card-glow"
-          onClick={() => openLightbox(0)}
-        >
-          <img
-            src={condoSection.featured}
-            alt="Projeto de condomínio fechado"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = "/placeholder.svg";
-            }}
-          />
+        {/* Featured Video */}
+        <div className="aspect-video rounded-lg overflow-hidden border border-border card-glow bg-black">
+          <video
+            poster={condoSection.videoPoster}
+            controls
+            className="w-full h-full object-cover shadow-2xl"
+            preload="none"
+          >
+            <source src={condoSection.video} type="video/mp4" />
+            Seu navegador não suporta este vídeo.
+          </video>
         </div>
 
-        {/* Gallery + video */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {/* Gallery */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {condoSection.gallery.map((img, i) => (
             <div
               key={i}
-              className="aspect-[4/3] rounded-lg overflow-hidden border border-border cursor-pointer card-glow"
-              onClick={() => openLightbox(i + 1)}
+              className="aspect-[4/3] rounded-lg overflow-hidden border border-border cursor-pointer hover:border-primary/50 transition-colors card-glow"
+              onClick={() => openLightbox(i)}
             >
               <img
                 src={img}
@@ -57,33 +54,11 @@ export default function CondoProjectSection() {
               />
             </div>
           ))}
-
-          {/* Video thumbnail */}
-          <div
-            className="aspect-[4/3] rounded-lg overflow-hidden border border-border cursor-pointer card-glow relative"
-            onClick={() => openLightbox(allImages.length)}
-          >
-            <img
-              src={condoSection.videoPoster}
-              alt="Vídeo do projeto"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "/placeholder.svg";
-              }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-background/40">
-              <div className="w-10 h-10 rounded-md bg-primary/90 flex items-center justify-center">
-                <Play size={18} className="text-primary-foreground ml-0.5" />
-              </div>
-            </div>
-          </div>
         </div>
 
         {lightboxOpen && (
           <Lightbox
             images={allImages}
-            video={condoSection.video}
-            videoPoster={condoSection.videoPoster}
             currentIndex={lightboxIndex}
             onClose={() => setLightboxOpen(false)}
             onPrev={() =>
