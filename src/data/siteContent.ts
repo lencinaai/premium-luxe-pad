@@ -10,7 +10,7 @@ export const siteInfo = {
   role: "Corretor de imóveis",
   location: "Litoral Norte - RS",
   creci: "CRECI 59.227",
-  whatsappNumber: "5551999999999", // Substituir pelo número real
+  whatsappNumber: "5551994041700", 
   whatsappText: "Olá, Cristian! Gostaria de mais informações.",
   // Imagem de perfil: public/assets/profile/avatar.jpg
   avatarUrl: "/assets/profile/avatar.jpg",
