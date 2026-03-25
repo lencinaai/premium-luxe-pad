@@ -293,7 +293,7 @@ export const emptyDecoratedSection = {
       before: "/assets/seller/empty-decorated/example-01/before.jpg",
       after: "/assets/seller/empty-decorated/example-01/after-ia.jpg",
       poster: "/assets/seller/empty-decorated/example-01/poster.jpg",
-      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774423381/copy_B1FE2B14-A23F-458D-ABF9-01F7667A2D07_zrf5gf.mov",
+      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774426613/copy_B1FE2B14-A23F-458D-ABF9-01F7667A2D07_kq8bve.mov",
       aspectRatio: "9/16",
     },
     {
@@ -301,7 +301,7 @@ export const emptyDecoratedSection = {
       before: "/assets/seller/empty-decorated/example-02/before.jpg",
       after: "/assets/seller/empty-decorated/example-02/after-ia.jpg",
       poster: "/assets/seller/empty-decorated/example-02/poster.jpg",
-      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774423384/copy_DEA167B0-B6EE-4BE4-BF1A-3F853F35B32A_bd99ox.mov",
+      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774426624/copy_DEA167B0-B6EE-4BE4-BF1A-3F853F35B32A_xlzd72.mov",
       aspectRatio: "3/2",
     },
   ],

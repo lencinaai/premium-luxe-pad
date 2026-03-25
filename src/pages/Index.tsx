@@ -12,6 +12,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import AboutSection from "@/components/sections/AboutSection";
 import FAQSection from "@/components/sections/FAQSection";
 import SocialSection from "@/components/sections/SocialSection";
+import BackToTopButton from "@/components/layout/BackToTopButton";
 
 export default function Index() {
   return (
@@ -34,6 +35,7 @@ export default function Index() {
       </main>
 
       <WhatsAppFloatingButton />
+      <BackToTopButton />
     </div>
   );
 }
