@@ -293,7 +293,7 @@ export const emptyDecoratedSection = {
       before: "/assets/seller/empty-decorated/example-01/before.jpg",
       after: "/assets/seller/empty-decorated/example-01/after-ia.jpg",
       poster: "/assets/seller/empty-decorated/example-01/poster.jpg",
-      video: "/assets/videos/seller/empty-decorated/example-01.mp4",
+      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774387532/copy_44D64B86-AD52-4B8A-9AE1-FE995117059D_bop9z6.mov",
       aspectRatio: "9/16",
     },
     {
@@ -301,7 +301,7 @@ export const emptyDecoratedSection = {
       before: "/assets/seller/empty-decorated/example-02/before.jpg",
       after: "/assets/seller/empty-decorated/example-02/after-ia.jpg",
       poster: "/assets/seller/empty-decorated/example-02/poster.jpg",
-      video: "/assets/videos/seller/empty-decorated/example-02.mp4",
+      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774388539/copy_F19461E4-90C1-4B2E-85F6-7F7F65B2E863_spxlpc.mov",
       aspectRatio: "3/2",
     },
   ],
@@ -333,7 +333,7 @@ export const lotAiSection = {
       before: "/assets/seller/lot-ai/example-01/empty-lot.jpg",
       after: "/assets/seller/lot-ai/example-01/project-ia.jpg",
       poster: "/assets/seller/lot-ai/example-01/poster.jpg",
-      video: "/assets/videos/seller/lot-ai/example-01.mp4",
+      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774387543/copy_9B22A73B-3B2C-4B73-9450-1B85F36FF29E_rw1q6e.mov",
     },
     {
       label: "Exemplo 02",
@@ -342,7 +342,7 @@ export const lotAiSection = {
       before: "/assets/seller/lot-ai/example-02/empty-lot.jpg",
       after: "/assets/seller/lot-ai/example-02/project-ia.jpg",
       poster: "/assets/seller/lot-ai/example-02/poster.jpg",
-      video: "/assets/videos/seller/lot-ai/example-02.mp4",
+      video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774387541/copy_A4120532-3E5C-4AD6-810C-1E12F7C7BDF3_wax7tw.mov",
     },
   ],
 };
@@ -368,7 +368,7 @@ export const condoSection = {
     "/assets/condo/gallery-04.jpg",
   ],
   videoPoster: "/assets/condo/video-poster.jpg",
-  video: "/assets/videos/condo/featured.mp4",
+  video: "https://res.cloudinary.com/dxzatenvb/video/upload/v1774388520/copy_4102DA41-6AE9-48DB-85B2-A0634C41847B_kgcwcs.mov",
 };
 
 // =============================================
